@@ -27,7 +27,7 @@ const diccionarioIconos = {
   suscripciones: IconoSuscripciones,
 };
 
-const Gasto = ({ gasto, setGastoEditar }) => {
+const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
   
   
   const { categoria, cantidad, nombre, id, fecha } = gasto;
@@ -43,7 +43,7 @@ const Gasto = ({ gasto, setGastoEditar }) => {
 
   const trailingActions = () =>( 
     <TrailingActions>
-      <SwipeAction onClick={() =>console.log('Hola mundo') }>
+      <SwipeAction onClick={() => eliminarGasto((id)) } destructive={true}>
         Eliminar
       </SwipeAction>
     </TrailingActions>
@@ -52,7 +52,7 @@ const Gasto = ({ gasto, setGastoEditar }) => {
 
   return (
     <SwipeableList>
-      <SwipeableListItem leadingActions={leadingActions()} trailingActions={trailingActions()}>
+      <SwipeableListItem leadingActions={leadingActions()} trailingActions={trailingActions()} >
         <div className="gasto sombra">
           <div className="contenido-gasto">
             <img src={diccionarioIconos[categoria]} alt="Iconos Gasto" />
